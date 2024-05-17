@@ -1,0 +1,15 @@
+{
+	"name": "com.grandouniverse.utilities",
+	"version": "0.0.1",
+	"displayName": "Grando Universe Utilities",
+	"description": "This is a Utilities for Grando Universe game project. feel free to use it if you found it useful.",
+	"unity": "6000.0",
+	"author": {
+		"name": "LKC",
+		"email": "grando93290@gmail.com",
+		"url": ""
+	},
+	"dependencies": {
+		"com.unity.nuget.newtonsoft-json": "3.2.1"
+	}
+}
