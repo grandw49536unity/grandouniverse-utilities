@@ -1,6 +1,6 @@
 {
-    "name": "GrandoUniverse.Editor.Utilities",
-    "rootNamespace": "",
+    "name": "GrandoUniverse.Utilities",
+    "rootNamespace": "GrandoUniverse",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

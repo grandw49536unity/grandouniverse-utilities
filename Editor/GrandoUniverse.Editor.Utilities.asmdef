@@ -1,8 +1,10 @@
 {
-    "name": "GrandoUniverse.Utilities",
-    "rootNamespace": "",
+    "name": "GrandoUniverse.Editor.Utilities",
+    "rootNamespace": "GrandoUniverse",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
