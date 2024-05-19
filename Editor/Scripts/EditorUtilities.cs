@@ -6,7 +6,11 @@ using UnityEditor;
 namespace GrandoUniverse.Editor.Utilities {
 	
 	public static class EditorUtilities {
-		
+
+		public static string GetAssetPath(string _realPath) { 
+			return _realPath.Replace(Application.dataPath, "Assets"); 
+		}
+
 		public static T[] LoadAllDataFromFolder<T>(string _folderPath, string _filter = "") where T : UnityEngine.Object {
 			return AssetDatabase.FindAssets(_filter, new[] { _folderPath }).Select(val => AssetDatabase.LoadAssetAtPath<T>(AssetDatabase.GUIDToAssetPath(val))).ToArray(); 
 		}
