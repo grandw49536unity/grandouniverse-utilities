@@ -11,15 +11,15 @@ namespace GrandoUniverse.Editor.Utilities {
 			return AssetDatabase.FindAssets(_filter, new[] { _folderPath }).Select(val => AssetDatabase.LoadAssetAtPath<T>(AssetDatabase.GUIDToAssetPath(val))).ToArray(); 
 		}
 		
-		public static Texture2D[] LoadAllTexture2DsFromFolder<T>(string _folderPath) {
+		public static Texture2D[] LoadAllTexture2DsFromFolder(string _folderPath) {
 			return LoadAllDataFromFolder<Texture2D>(_folderPath, "t:Texture2D");
 		}
 		
-		public static Material[] LoadAllMaterialsFromFolder<T>(string _folderPath) {
+		public static Material[] LoadAllMaterialsFromFolder(string _folderPath) {
 			return LoadAllDataFromFolder<Material>(_folderPath, "t:Material");
 		}
 		
-		public static GameObject[] LoadAllModelsFromFolder<T>(string _folderPath) {
+		public static GameObject[] LoadAllModelsFromFolder(string _folderPath) {
 			return LoadAllDataFromFolder<GameObject>(_folderPath, "t:model");
 		}
 		
