@@ -31,12 +31,11 @@ namespace GrandoUniverse.Utilities {
 		}
 		
 		void AddTransformRelationship(Transform _childTransform, string _parentKey = "") {
-			TreeNode<string, TransformInfo> newNode = new TreeNode<string, TransformInfo>(_childTransform.name, new TransformInfo(_childTransform));
-			newNode.parentKey = _parentKey;
+			TreeNode newNode = new TreeNode(_childTransform.name, new TransformInfo(_childTransform)) { parentKey = _parentKey };
 			if (_parentKey != "") {
 				this[_parentKey].childKeys.Add(newNode.key);
 			}
-			Add(newNode.key, newNode);
+			Add(newNode);
 			for (int i = 0; i < _childTransform.childCount; i++) {
 				AddTransformRelationship(_childTransform.GetChild(i), newNode.key);
 			}
