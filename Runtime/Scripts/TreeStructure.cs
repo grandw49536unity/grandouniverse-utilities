@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,7 +46,10 @@ namespace GrandoUniverse.Utilities {
 		}
 
 		public void Initialize() {
-			nodeDict = m_nodes.ToDictionary(val => val.key, val => val);
+			nodeDict = new Dictionary<TKey, TreeNode>();
+			foreach (TreeNode i in m_nodes) {
+				nodeDict.Add(i.key, i);
+			}
 			m_isInit = true;
 		}
 		
@@ -121,7 +123,10 @@ namespace GrandoUniverse.Utilities {
 		}
 		
 		public void InternalUpload() {
-			m_nodes = nodeDict.Select((KeyValuePair<TKey, TreeNode> val) => val.Value).ToList();
+			m_nodes = new List<TreeNode>();
+			foreach (KeyValuePair<TKey, TreeNode> i in nodeDict) {
+				m_nodes.Add(i.Value);
+			}
 		}
 
 	}

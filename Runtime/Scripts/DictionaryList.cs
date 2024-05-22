@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,7 +38,10 @@ namespace GrandoUniverse.Utilities {
 		}
 		
 		public void Initialize() {
-			dataDict = m_data.ToDictionary(val => val.key, val => val.value);
+			dataDict = new Dictionary<TKey, TValue>();
+			foreach (KeyValuePair i in m_data) {
+				dataDict.Add(i.key, i.value);
+			}
 			m_isInit = true;
 		}
 		
@@ -70,8 +72,8 @@ namespace GrandoUniverse.Utilities {
 		
 		public void InternalUpload() {
 			m_data = new List<KeyValuePair>();
-			foreach (KeyValuePair<TKey, TValue> data in dataDict) {
-				m_data = dataDict.Select((KeyValuePair<TKey, TValue> val) => new KeyValuePair { key = val.Key, value = val.Value }).ToList();
+			foreach (KeyValuePair<TKey, TValue> i in dataDict) {
+				m_data.Add(new KeyValuePair { key = i.Key, value = i.Value });
 			}
 		}
 
