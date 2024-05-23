@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace GrandoUniverse.Utilities {
 
-	public static partial class Utilities {
+	public static class CSVUtilities {
 
 		public static string[][] GetCSVTable(string _csvRawData) {
 			Regex regex = new Regex(",(?=(?:[^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)");

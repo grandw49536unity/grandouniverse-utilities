@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GrandoUniverse.Utilities {
 
-	public static partial class Utilities {
+	public static class GeneralUtilities {
 
 		public static void Destroy(UnityEngine.Object _object, bool _allowDestroyingAssets = false) {
 #if UNITY_EDITOR

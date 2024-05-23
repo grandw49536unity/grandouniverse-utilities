@@ -4,19 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace GrandoUniverse.Utilities {
-	
-	[Serializable]
-	public class TransformInfo {
-		public Vector3 localPosition;
-		public Quaternion localRotation;
-		public TransformInfo(Transform _transform) {
-			localPosition = _transform.localPosition;
-			localRotation = _transform.localRotation;
-		}
-	}
 
 	[Serializable]
-	public class TransformTree : TreeStructure<string, TransformInfo> {
+	public class TransformTree : TreeStructure<string, Transform> {
 
 		public TransformTree(Transform _rootTransform) {
 			SetupTransformTree(_rootTransform);
@@ -30,7 +20,7 @@ namespace GrandoUniverse.Utilities {
 		}
 		
 		void AddTransformRelationship(Transform _childTransform, string _parentKey = "") {
-			TreeNode newNode = new TreeNode(_childTransform.name, new TransformInfo(_childTransform)) { parentKey = _parentKey };
+			TreeNode newNode = new TreeNode(_childTransform.name, _childTransform) { parentKey = _parentKey };
 			if (_parentKey != "") {
 				this[_parentKey].childKeys.Add(newNode.key);
 			}
