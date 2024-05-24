@@ -37,6 +37,12 @@ namespace GrandoUniverse.Utilities {
 			Clear();
 		}
 		
+		public DictionaryList(Dictionary<TKey,TValue> _dict) {
+			m_dataDict = _dict;
+			m_isInit = true;
+			InternalUpload();
+		}
+		
 		public void Initialize() {
 			dataDict = new Dictionary<TKey, TValue>();
 			foreach (KeyValuePair i in m_data) {
@@ -45,8 +51,8 @@ namespace GrandoUniverse.Utilities {
 			m_isInit = true;
 		}
 		
-		public int Count { get { return dataDict.Count; } }
-	
+		public int Count => dataDict.Count;
+		
 		public bool ContainsKey(TKey _key) {
 			return dataDict.ContainsKey(_key);
 		}
