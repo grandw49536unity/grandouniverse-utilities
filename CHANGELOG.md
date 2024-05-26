@@ -1,4 +1,10 @@
-# [0.0.13](https://github.com/Whinarn/UnityMeshSimplifier/compare/v3.0.1...v3.1.0) (2024-05-24)
+# [0.0.14] (2024-05-27)
+
+### Bug-Fix
+
+* **editor:** remove editor refresh after create folder
+
+# [0.0.13] (2024-05-24)
 
 ### Features
 

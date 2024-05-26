@@ -22,7 +22,6 @@ namespace GrandoUniverse.Editor.Utilities {
 					string parentFolder = System.IO.Path.GetDirectoryName(path);
 					string newFolderName = System.IO.Path.GetFileName(path);
 					AssetDatabase.CreateFolder(parentFolder, newFolderName);
-					AssetDatabase.Refresh();
 				}
 			}
 		}
