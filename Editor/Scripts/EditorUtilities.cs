@@ -1,29 +1,69 @@
-using System;
+using System.IO;
 using UnityEngine;
 using UnityEditor;
 
 namespace GrandoUniverse.Editor.Utilities {
 	
 	public static class EditorUtilities {
-		
-		public static void CleanFolder(string _folderPath) {
+
+		public static void DeleteFolder(string _folderPath, bool _shouldRefresh = true) { 
+			if (_shouldRefresh) {
+				DeleteFolderWithRefreshing(_folderPath);
+			} else {
+				DeleteFolderWithoutRefreshing(_folderPath);
+			}
+		}
+
+		static void DeleteFolderWithRefreshing(string _folderPath) { 
 			if (AssetDatabase.IsValidFolder(_folderPath)) {
 				AssetDatabase.DeleteAsset(_folderPath);
 			}
-			CreateFolder(_folderPath);
+		}
+		
+		static void DeleteFolderWithoutRefreshing(string _folderPath) {
+			string path = GetRealPath(_folderPath);
+			if (Directory.Exists(path)) {
+				DirectoryInfo directoryInfo = new DirectoryInfo(path);
+				foreach (FileInfo file in directoryInfo.GetFiles()) file.Delete(); 
+				foreach (DirectoryInfo directory in directoryInfo.GetDirectories()) directory.Delete(true); 
+			}
 		}
 
-		public static void CreateFolder(string _folderPath) {
+		public static void CreateFolder(string _folderPath, bool _shouldRefresh = true) {
+			if (_shouldRefresh) {
+				CreateFolderWithRefreshing(_folderPath);
+			} else {
+				CreateFolderWithoutRefreshing(_folderPath);
+			}
+		}
+		
+		static void CreateFolderWithRefreshing(string _folderPath) {
 			string[] subPaths = GetFolderSubPaths(_folderPath);
 			string path = subPaths[0];
 			for (int i = 1; i < subPaths.Length; i++) {
 				path += $"/{subPaths[i]}";
 				if (!AssetDatabase.IsValidFolder(path)) {
-					string parentFolder = System.IO.Path.GetDirectoryName(path);
-					string newFolderName = System.IO.Path.GetFileName(path);
+					string parentFolder = Path.GetDirectoryName(path);
+					string newFolderName = Path.GetFileName(path);
 					AssetDatabase.CreateFolder(parentFolder, newFolderName);
 				}
 			}
+		}
+		
+		static void CreateFolderWithoutRefreshing(string _folderPath) {
+			string[] subPaths = GetFolderSubPaths(_folderPath);
+			string path = GetRealPath(subPaths[0]);
+			for (int i = 1; i < subPaths.Length; i++) {
+				path += $"/{subPaths[i]}";
+				if (!Directory.Exists(path)) {
+					Directory.CreateDirectory(path);
+				}
+			}
+		}
+		
+		public static void CleanFolder(string _folderPath, bool _shouldRefresh = true) {
+			DeleteFolder(_folderPath, _shouldRefresh);
+			CreateFolder(_folderPath, _shouldRefresh);
 		}
 
 		public static string[] GetFolderSubPaths(string _folderPath) {
@@ -32,6 +72,10 @@ namespace GrandoUniverse.Editor.Utilities {
 
 		public static string GetAssetPath(string _realPath) { 
 			return _realPath.Replace(Application.dataPath, "Assets"); 
+		}
+		
+		public static string GetRealPath(string _assetPath) { 
+			return _assetPath.Replace("Assets", Application.dataPath); 
 		}
 
 		public static T[] LoadAllDataFromFolder<T>(string _folderPath, string _filter = "") where T : UnityEngine.Object {
