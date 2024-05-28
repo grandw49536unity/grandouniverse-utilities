@@ -25,21 +25,19 @@ namespace GrandoUniverse.Utilities {
 		public bool isInit { get { return m_isInit; } }
 		public TKey rootKey;
 		[SerializeField] private List<TreeNode> m_nodes;
-#if UNITY_EDITOR
 		private Dictionary<TKey, TreeNode> m_nodeDict;
 		public Dictionary<TKey, TreeNode> nodeDict { 
 			private set {
 				m_nodeDict = value; 
 			} get {
+#if UNITY_EDITOR
 				if (!m_isInit) {
 					Initialize();
 				}
+#endif
 				return m_nodeDict; 
 			} 
 		}
-#else
-		public Dictionary<TKey, TreeNode> nodeDict { private set; get; }
-#endif
 		
 		public TreeStructure() {
 			Clear();

@@ -1,3 +1,9 @@
+# [0.0.16] (2024-05-28)
+
+### Bug-Fix + Features
+
+* **editor:** fix build app error & add addressable editor utilities
+
 # [0.0.15] (2024-05-27)
 
 ### Features

@@ -17,22 +17,19 @@ namespace GrandoUniverse.Utilities {
 		private bool m_isInit = false;
 		public bool isInit { get { return m_isInit; } }
 		[SerializeField] private List<KeyValuePair> m_data;
-#if UNITY_EDITOR
 		private Dictionary<TKey, TValue> m_dataDict;
-		public Dictionary<TKey, TValue> dataDict { 
-			private set {
-				m_dataDict = value; 
-			} get {
+		public Dictionary<TKey, TValue> dataDict {
+			private set { m_dataDict = value; }
+			get {
+#if UNITY_EDITOR
 				if (!m_isInit) {
 					Initialize();
 				}
-				return m_dataDict; 
-			} 
-		}
-#else
-		public Dictionary<TKey, TValue> dataDict { private set; get; }
 #endif
-		
+				return m_dataDict;
+			}
+		}
+
 		public DictionaryList() {
 			Clear();
 		}
