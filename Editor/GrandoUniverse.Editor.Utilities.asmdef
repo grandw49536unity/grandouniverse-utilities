@@ -2,7 +2,8 @@
     "name": "GrandoUniverse.Editor.Utilities",
     "rootNamespace": "GrandoUniverse",
     "references": [
-        "GUID:69448af7b92c7f342b298e06a37122aa"
+        "GUID:69448af7b92c7f342b298e06a37122aa",
+        "GUID:1fd29777e77e04943ac4d3fc4649d550"
     ],
     "includePlatforms": [
         "Editor"

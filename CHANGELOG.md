@@ -1,3 +1,10 @@
+# [0.0.17] (2024-05-29)
+
+### Features
+
+* **dictionarylist:** simplifly Dictionary List & Tree Structure. 
+* **editor utilities:**  And add Google Sheet To CSV feature
+
 # [0.0.16] (2024-05-28)
 
 ### Bug-Fix + Features
