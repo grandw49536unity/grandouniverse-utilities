@@ -1,3 +1,9 @@
+# [0.0.18] (2024-05-29)
+
+### Features
+
+* **encryption:** add encrytion function.
+
 # [0.0.17] (2024-05-29)
 
 ### Features
