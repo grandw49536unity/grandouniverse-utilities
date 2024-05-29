@@ -38,7 +38,11 @@ namespace GrandoUniverse.Editor.Utilities {
 
 		public static AddressableAssetGroup AddAddressableGroup(string _groupName) {
 			AddressableAssetSettings addressableSetting = AddressableAssetSettingsDefaultObject.Settings;
-			return addressableSetting.FindGroup(_groupName) ?? addressableSetting.CreateGroup(_groupName, false, false, true, null, typeof(ContentUpdateGroupSchema), typeof(BundledAssetGroupSchema));
+			AddressableAssetGroup addressableGroup = addressableSetting.FindGroup(_groupName);
+			if (!addressableGroup) {
+				addressableGroup = addressableSetting.CreateGroup(_groupName, false, false, true, null, typeof(ContentUpdateGroupSchema), typeof(BundledAssetGroupSchema));
+			}
+			return addressableGroup;
 		}
 
 		public static AddressableAssetGroup ClearAddressableGroup(string _groupName) {
