@@ -1,3 +1,9 @@
+# [0.0.20] (2024-05-29)
+
+### Bug-Fix
+
+* **dictionarylist:** bug fixing
+
 # [0.0.19] (2024-05-29)
 
 ### Features

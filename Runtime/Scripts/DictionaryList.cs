@@ -22,13 +22,30 @@ namespace GrandoUniverse.Utilities {
 		
 		public DictionaryList() {
 			m_data = new List<KeyValuePair>();
-			Clear();
+			Initialize();
 		}
 		
 		public DictionaryList(Dictionary<TKey,TValue> _dict) {
-			Clear();
-			m_isInit = true;
+			foreach (KeyValuePair<TKey, TValue> i in _dict) {
+				Add(i.Key, i.Value);
+			}
 			InternalUpload();
+			m_isInit = true;
+		}
+		
+		public void Initialize() {
+			Clear();
+			foreach (KeyValuePair i in m_data) {
+				Add(i.key, i.value);
+			}
+			m_isInit = true;
+		}
+
+		public void InternalUpload() {
+			m_data = new List<KeyValuePair>();
+			foreach (KeyValuePair<TKey, TValue> i in this) {
+				m_data.Add(new KeyValuePair { key = i.Key, value = i.Value });
+			}
 		}
 		
 		public new TValue this[TKey _key] {
@@ -47,21 +64,6 @@ namespace GrandoUniverse.Utilities {
 				}
 #endif
 				base[_key] = value; 
-			}
-		}
-		
-		public void Initialize() {
-			Clear();
-			foreach (KeyValuePair i in m_data) {
-				Add(i.key, i.value);
-			}
-			m_isInit = true;
-		}
-
-		public void InternalUpload() {
-			m_data = new List<KeyValuePair>();
-			foreach (KeyValuePair<TKey, TValue> i in this) {
-				m_data.Add(new KeyValuePair { key = i.Key, value = i.Value });
 			}
 		}
 

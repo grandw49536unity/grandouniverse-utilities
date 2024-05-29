@@ -30,7 +30,8 @@ namespace GrandoUniverse.Utilities {
 		public List<TreeNode<TKey, TValue>> nodes => m_nodes;
 		
 		public TreeStructure() {
-			Clear();
+			m_nodes = new List<TreeNode<TKey, TValue>>();
+			Initialize();
 		}
 
 		public void Initialize() {
