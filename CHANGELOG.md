@@ -1,5 +1,11 @@
 # [0.0.20] (2024-05-29)
 
+### Features
+
+* **maplist:** add maplist
+
+# [0.0.20] (2024-05-29)
+
 ### Bug-Fix
 
 * **dictionarylist:** bug fixing
