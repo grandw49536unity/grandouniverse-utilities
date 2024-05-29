@@ -1,3 +1,9 @@
+# [0.0.19] (2024-05-29)
+
+### Features
+
+* **addressable:** add addressable function.
+
 # [0.0.18] (2024-05-29)
 
 ### Features

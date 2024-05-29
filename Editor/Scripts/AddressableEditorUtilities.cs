@@ -1,20 +1,38 @@
-using System.IO;
-using UnityEngine;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
-
+using Object = UnityEngine.Object;
 namespace GrandoUniverse.Editor.Utilities {
 
 	public static class AddressableEditorUtilities {
 
 		public static void DeleteAddressableGroup(string _groupName) {
 			AddressableAssetSettings addressableSetting = AddressableAssetSettingsDefaultObject.Settings;
-			AddressableAssetGroup textureAssetGroup = addressableSetting.FindGroup(_groupName);
-			if (textureAssetGroup) {
-				textureAssetGroup.ClearSchemas(true);
-				addressableSetting.RemoveGroup(textureAssetGroup);
+			AddressableAssetGroup addressableGroup = addressableSetting.FindGroup(_groupName);
+			if (addressableGroup) {
+				addressableGroup.ClearSchemas(true);
+				addressableSetting.RemoveGroup(addressableGroup);
+			}
+		}
+
+		public static List<AddressableAssetGroup> GetAddressableGroups(string _groupNameSearch) { 
+			AddressableAssetSettings addressableSetting = AddressableAssetSettingsDefaultObject.Settings;
+			List<AddressableAssetGroup> searchedGroups = addressableSetting.groups.Where(val => val.name.Contains(_groupNameSearch, StringComparison.Ordinal)).ToList();
+			return searchedGroups;
+		}
+		
+		public static void DeleteAddressableGroups(string _groupNameSearch) { 
+			AddressableAssetSettings addressableSetting = AddressableAssetSettingsDefaultObject.Settings;
+			List<AddressableAssetGroup> searchedGroups = addressableSetting.groups.Where(val => val.name.Contains(_groupNameSearch, StringComparison.Ordinal)).ToList();
+			foreach (AddressableAssetGroup addressableGroup in searchedGroups) {
+				if (addressableGroup) {
+					addressableGroup.ClearSchemas(true);
+					addressableSetting.RemoveGroup(addressableGroup);
+				}
 			}
 		}
 
