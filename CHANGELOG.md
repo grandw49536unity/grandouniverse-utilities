@@ -1,3 +1,10 @@
+# [0.0.23] (2024-06-01)
+
+### Features
+
+* **csv utilities:** update remove first row features
+* **texture utilities:** texture2d to render texture
+
 # [0.0.22] (2024-05-29)
 
 ### Bug-Fix
