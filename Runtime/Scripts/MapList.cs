@@ -29,6 +29,7 @@ namespace GrandoUniverse.Utilities {
 			foreach (TKey i in _data) {
 				Add(i);
 			}
+			InternalUpload();
 			m_isInit = true;
 		}
 		
