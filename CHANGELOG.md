@@ -1,3 +1,9 @@
+# [0.0.24] (2024-06-03)
+
+### Bug-Fix
+
+* **map list:** fix map list bug
+
 # [0.0.23] (2024-06-01)
 
 ### Features

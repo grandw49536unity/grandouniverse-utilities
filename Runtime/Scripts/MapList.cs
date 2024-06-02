@@ -21,7 +21,14 @@ namespace GrandoUniverse.Utilities {
 		
 		public MapList(List<TKey> _data) {
 			m_data = _data;
-			InternalUpload();
+			Initialize();
+		}
+		
+		public MapList(HashSet<TKey> _data) {
+			Clear();
+			foreach (TKey i in _data) {
+				Add(i);
+			}
 			m_isInit = true;
 		}
 		
