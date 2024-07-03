@@ -1,3 +1,9 @@
+# [0.0.25] (2024-07-03)
+
+### Bug-Fix
+
+* **map list:** fix map list cannot be serialized in addressable bug
+
 # [0.0.24] (2024-06-03)
 
 ### Bug-Fix
