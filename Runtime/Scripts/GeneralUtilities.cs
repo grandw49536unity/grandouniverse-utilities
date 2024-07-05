@@ -31,6 +31,39 @@ namespace GrandoUniverse.Utilities {
 		public static Vector3 Multiple(this Vector3 _a, Vector3 _b) { return new Vector3(_a.x * _b.x, _a.y * _b.y, _a.z * _b.z); }
 		
 		public static Vector3 Divide(this Vector3 _a, Vector3 _b) { return new Vector3(_a.x / _b.x, _a.y / _b.y, _a.z / _b.z); }
+		
+		public static float Remap(float _value, float _fromMin, float _fromMax, float _toMin, float _toMax) {
+			return (_value - _fromMin) / (_fromMax - _fromMin) * (_toMax - _toMin) + _toMin;
+		}
+		
+		public static Vector2 Remap(float _value, float _fromMin, float _fromMax, Vector2 _toMin, Vector2 _toMax) {
+			return (_value - _fromMin) / (_fromMax - _fromMin) * (_toMax - _toMin) + _toMin;
+		}
+		
+		public static Vector3 Remap(float _value, float _fromMin, float _fromMax, Vector3 _toMin, Vector3 _toMax) {
+			return (_value - _fromMin) / (_fromMax - _fromMin) * (_toMax - _toMin) + _toMin;
+		}
+		
+		public static Vector4 Remap(float _value, float _fromMin, float _fromMax, Vector4 _toMin, Vector4 _toMax) {
+			return (_value - _fromMin) / (_fromMax - _fromMin) * (_toMax - _toMin) + _toMin;
+		}
+
+		public static Vector2 Remap(Vector2 _value, Vector2 _fromMin, Vector2 _fromMax, Vector2 _toMin, Vector2 _toMax) { 
+			return new Vector2(Remap(_value.x, _fromMin.x, _fromMax.x, _toMin.x, _toMax.x), Remap(_value.y, _fromMin.y, _fromMax.y, _toMin.y, _toMax.y)); 
+		}
+		
+		public static Vector3 Remap(Vector3 _value, Vector3 _fromMin, Vector3 _fromMax, Vector3 _toMin, Vector3 _toMax) {
+			return new Vector3(Remap(_value.x, _fromMin.x, _fromMax.x, _toMin.x, _toMax.x), 
+				Remap(_value.y, _fromMin.y, _fromMax.y, _toMin.y, _toMax.y), 
+				Remap(_value.z, _fromMin.z, _fromMax.z, _toMin.z, _toMax.z));
+		}
+		
+		public static Vector4 Remap(Vector4 _value, Vector4 _fromMin, Vector4 _fromMax, Vector4 _toMin, Vector4 _toMax) {
+			return new Vector4(Remap(_value.x, _fromMin.x, _fromMax.x, _toMin.x, _toMax.x),
+				Remap(_value.y, _fromMin.y, _fromMax.y, _toMin.y, _toMax.y), 
+				Remap(_value.z, _fromMin.z, _fromMax.z, _toMin.z, _toMax.z), 
+				Remap(_value.w, _fromMin.w, _fromMax.w, _toMin.w, _toMax.w));
+		}
 
 		public static GameObject CreateGameObject(string _name, Transform _parent, Vector3 _position, bool _is_global_position, Quaternion _rotation, bool _is_global_rotation) {
 			GameObject obj_new = new GameObject(_name);

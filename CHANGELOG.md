@@ -1,3 +1,9 @@
+# [0.0.26] (2024-07-05)
+
+### Features
+
+* **remap:** add remap function
+
 # [0.0.25] (2024-07-03)
 
 ### Bug-Fix
