@@ -64,6 +64,11 @@ namespace GrandoUniverse.Utilities {
 				Remap(_value.z, _fromMin.z, _fromMax.z, _toMin.z, _toMax.z), 
 				Remap(_value.w, _fromMin.w, _fromMax.w, _toMin.w, _toMax.w));
 		}
+		
+		public static float DistributedRandom() {
+			float random = Random.value;
+			return 4f * (random * random * random);
+		}
 
 		public static GameObject CreateGameObject(string _name, Transform _parent, Vector3 _position, bool _is_global_position, Quaternion _rotation, bool _is_global_rotation) {
 			GameObject obj_new = new GameObject(_name);
