@@ -67,7 +67,7 @@ namespace GrandoUniverse.Utilities {
 		
 		public static float DistributedRandom() {
 			float random = Random.value;
-			return 4f * (random * random * random);
+			return random * random * random;
 		}
 
 		public static GameObject CreateGameObject(string _name, Transform _parent, Vector3 _position, bool _is_global_position, Quaternion _rotation, bool _is_global_rotation) {
