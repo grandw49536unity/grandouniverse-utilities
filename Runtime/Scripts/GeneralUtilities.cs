@@ -66,7 +66,7 @@ namespace GrandoUniverse.Utilities {
 		}
 		
 		public static float DistributedRandom() {
-			float random = Random.value;
+			float random = Random.value * 2f - 1f;
 			return random * random * random;
 		}
 
