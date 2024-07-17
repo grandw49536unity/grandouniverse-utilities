@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace GrandoUniverse.Utilities {
@@ -101,6 +102,18 @@ namespace GrandoUniverse.Utilities {
 		public static T CreateGameObjectWithComponent<T>(string _name, Transform _parent = null) where T : UnityEngine.Component {
 			GameObject newObj = CreateGameObject(_name, _parent, Vector3.zero, false, Quaternion.identity, false);
 			return newObj.AddComponent<T>();
+		}
+
+		public static T GetRandomElement<T>(this List<T> _list) {
+			return _list[Mathf.FloorToInt(Random.value * _list.Count)];
+		}
+		
+		public static T GetRandomElement<T>(this HashSet<T> _set) {
+			return _set.ElementAt(Mathf.FloorToInt(Random.value * _set.Count));
+		}
+
+		public static KeyValuePair<TKey, TValue> GetRandomElement<TKey, TValue>(this Dictionary<TKey, TValue> _dict) {
+			return _dict.ElementAt(Mathf.FloorToInt(Random.value * _dict.Count));
 		}
 
 	}

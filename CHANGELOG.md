@@ -1,3 +1,9 @@
+# [0.0.28] (2024-07-18)
+
+### Features
+
+* **get random element:** add get random element for list, hashset and dictionary
+
 # [0.0.27] (2024-07-07)
 
 ### Features
