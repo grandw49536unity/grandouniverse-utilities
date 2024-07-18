@@ -1,3 +1,9 @@
+# [0.0.29] (2024-07-19)
+
+### Features
+
+* **color utilities:** add hsl color space utilities
+
 # [0.0.28] (2024-07-18)
 
 ### Features
