@@ -1,3 +1,9 @@
+# [0.0.30] (2024-07-31)
+
+### Features
+
+* **general utilities:** add normalized select element function for list, hash set and dictionary
+
 # [0.0.29] (2024-07-19)
 
 ### Features

@@ -108,12 +108,27 @@ namespace GrandoUniverse.Utilities {
 			return _list[Mathf.FloorToInt(Random.value * _list.Count)];
 		}
 		
+		public static T SelectElement<T>(this List<T> _list, float _normalizedValue) {
+			int count = _list.Count;
+			return _list[Mathf.Clamp(Mathf.FloorToInt(_normalizedValue * count), 0, count - 1)];
+		}
+		
 		public static T GetRandomElement<T>(this HashSet<T> _set) {
 			return _set.ElementAt(Mathf.FloorToInt(Random.value * _set.Count));
+		}
+		
+		public static T SelectElement<T>(this HashSet<T> _set, float _normalizedValue) {
+			int count = _set.Count;
+			return _set.ElementAt(Mathf.Clamp(Mathf.FloorToInt(_normalizedValue * count), 0, count - 1));
 		}
 
 		public static KeyValuePair<TKey, TValue> GetRandomElement<TKey, TValue>(this Dictionary<TKey, TValue> _dict) {
 			return _dict.ElementAt(Mathf.FloorToInt(Random.value * _dict.Count));
+		}
+		
+		public static KeyValuePair<TKey, TValue> SelectElement<TKey, TValue>(this Dictionary<TKey, TValue> _dict, float _normalizedValue) {
+			int count = _dict.Count;
+			return _dict.ElementAt(Mathf.Clamp(Mathf.FloorToInt(_normalizedValue * count), 0, count - 1));
 		}
 
 	}
